@@ -1,7 +1,10 @@
 package com.example.viagens.ui.adapter;
 
+import static com.example.viagens.util.PriceFormater.getCurrencyFormat;
+import static com.example.viagens.util.Resource.getDrawableByText;
+import static com.example.viagens.util.Text.formatDaysToText;
+
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,8 @@ import android.widget.TextView;
 import com.example.viagens.R;
 import com.example.viagens.model.Trip;
 
+
+import java.text.NumberFormat;
 import java.util.List;
 
 public class TripListAdapter extends BaseAdapter {
@@ -41,23 +46,37 @@ public class TripListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View createdView = LayoutInflater.from(context).inflate(R.layout.trip_item, viewGroup, false);
+        View createdView = LayoutInflater
+                .from(context).inflate(R.layout.trip_item, viewGroup, false);
         Trip trip = trips.get(i);
 
+        fillLocal(createdView, trip);
+        fillImage(createdView, trip);
+        fillDays(createdView, trip);
+        fillPrice(createdView, trip);
+        return createdView;
+    }
+
+    private void fillPrice(View createdView, Trip trip) {
+        TextView price = createdView.findViewById(R.id.trip_item_price);
+        NumberFormat currencyFormat = getCurrencyFormat();
+        price.setText(currencyFormat.format(trip.getPrice()));
+    }
+
+    private void fillDays(View createdView, Trip trip) {
+        TextView days = createdView.findViewById(R.id.trip_item_days);
+        String dias = formatDaysToText(trip.getDays());
+        days.setText(dias);
+    }
+
+    private void fillImage(View createdView, Trip trip) {
+        ImageView image = createdView.findViewById(R.id.trip_item_image);
+        Drawable tripImage = getDrawableByText(context, trip.getImage());
+        image.setImageDrawable(tripImage);
+    }
+
+    private void fillLocal(View createdView, Trip trip) {
         TextView local = createdView.findViewById(R.id.trip_item_local);
         local.setText(trip.getLocal());
-
-        ImageView image = createdView.findViewById(R.id.trip_item_image);
-        Resources resources = context.getResources();
-        int drawableId = resources.getIdentifier(trip.getImage(), "drawable", context.getPackageName());
-        Drawable tripImage = resources.getDrawable(drawableId);
-        image.setImageDrawable(tripImage);
-
-        TextView days = createdView.findViewById(R.id.trip_item_days);
-        days.setText(trip.getDays() + "dias");
-
-        TextView price = createdView.findViewById(R.id.trip_item_price);
-        price.setText(trip.getPrice().toString());
-        return createdView;
     }
 }
