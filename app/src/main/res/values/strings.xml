@@ -5,4 +5,5 @@
     <string name="banner">Banner</string>
     <string name="trip_image">Imagem do local</string>
     <string name="summary_button_paymentString">Realizar Pagamento</string>
+    <string name="summary_activity_title">Resumo do Pacote</string>
 </resources>

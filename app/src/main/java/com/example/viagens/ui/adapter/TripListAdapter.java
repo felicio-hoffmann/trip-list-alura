@@ -16,8 +16,6 @@ import android.widget.TextView;
 import com.example.viagens.R;
 import com.example.viagens.model.Trip;
 
-
-import java.text.NumberFormat;
 import java.util.List;
 
 public class TripListAdapter extends BaseAdapter {
