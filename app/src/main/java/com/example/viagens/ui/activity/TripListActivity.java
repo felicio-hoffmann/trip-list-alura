@@ -1,5 +1,6 @@
 package com.example.viagens.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -21,6 +22,8 @@ public class TripListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle(APP_TITLE);
         configureList();
+        Intent goToPayment = new Intent(this, TripSummaryActivity.class);
+        startActivity(goToPayment);
     }
 
     private void configureList() {

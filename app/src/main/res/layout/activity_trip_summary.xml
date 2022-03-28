@@ -6,4 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.TripSummaryActivity">
 
+    <ImageView
+        android:id="@+id/summary_image_local"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:src="@sample/trip.json/pacotes/imagem" />
+
+    <TextView
+        android:id="@+id/summary_text_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summary_image_local"
+        tools:text="@sample/trip.json/pacotes/local" />
+
+    <TextView
+        android:id="@+id/summary_text_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/summary_text_city"
+        app:layout_constraintTop_toBottomOf="@+id/summary_text_city"
+        tools:text="@sample/trip.json/pacotes/dias" />
+
+    <TextView
+        android:id="@+id/summary_text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/summary_text_days"
+        app:layout_constraintTop_toBottomOf="@+id/summary_text_days"
+        tools:text="8/12 - 10/12 de 2017" />
+
+    <TextView
+        android:id="@+id/summary_text_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="#4CAF50"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/summary_text_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@sample/trip.json/pacotes/preco" />
+
+    <TextView
+        android:id="@+id/summary_text_price_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/summary_text_price"
+        app:layout_constraintEnd_toEndOf="@+id/summary_text_price"
+        tools:text="Valor final:" />
+
+    <Button
+        android:id="@+id/summary_button_payment"
+        style="@style/buttonstyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/summary_button_paymentString"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

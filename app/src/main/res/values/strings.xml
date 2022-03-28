@@ -4,4 +4,5 @@
     <string name="country">Brasil</string>
     <string name="banner">Banner</string>
     <string name="trip_image">Imagem do local</string>
+    <string name="summary_button_paymentString">Realizar Pagamento</string>
 </resources>

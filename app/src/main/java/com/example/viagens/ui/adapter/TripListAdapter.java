@@ -1,6 +1,6 @@
 package com.example.viagens.ui.adapter;
 
-import static com.example.viagens.util.PriceFormater.getCurrencyFormat;
+import static com.example.viagens.util.PriceFormater.formatToBRL;
 import static com.example.viagens.util.Resource.getDrawableByText;
 import static com.example.viagens.util.Text.formatDaysToText;
 
@@ -59,8 +59,7 @@ public class TripListAdapter extends BaseAdapter {
 
     private void fillPrice(View createdView, Trip trip) {
         TextView price = createdView.findViewById(R.id.trip_item_price);
-        NumberFormat currencyFormat = getCurrencyFormat();
-        price.setText(currencyFormat.format(trip.getPrice()));
+        price.setText(formatToBRL(trip.getPrice()));
     }
 
     private void fillDays(View createdView, Trip trip) {
