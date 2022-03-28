@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="10dp"
+        app:cardPreventCornerOverlap="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,6 +24,7 @@
                 android:id="@+id/trip_item_image"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
+                android:contentDescription="@string/trip_image"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,8 +75,10 @@
                 android:id="@+id/trip_item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/trip_item_days"
                 app:layout_constraintTop_toBottomOf="@id/trip_item_days"
                 tools:text="@sample/trip.json/pacotes/preco" />
