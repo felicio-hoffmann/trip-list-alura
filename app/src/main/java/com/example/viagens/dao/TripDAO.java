@@ -9,7 +9,7 @@ import java.util.List;
 
 public class  TripDAO{
 
-    public List<Trip> list() {
+    public static List<Trip> list() {
         return new ArrayList<>(Arrays.asList(
                 new Trip("São Paulo", "sao_paulo_sp", 2, new BigDecimal(243.99)),
                 new Trip("Belo Horizonte", "belo_horizonte_mg", 3, new BigDecimal(421.50)),

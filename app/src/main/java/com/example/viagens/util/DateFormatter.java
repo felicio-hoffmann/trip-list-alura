@@ -16,7 +16,7 @@ public class DateFormatter {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
-    public String dateToString(int days) {
+    public static String dateToString(int days) {
         LocalDate initialDate = LocalDate.now();
         LocalDate returnDate = LocalDate.now().plusDays(days);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM");

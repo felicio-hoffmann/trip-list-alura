@@ -2,8 +2,10 @@ package com.example.viagens.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.viagens.R;
@@ -21,9 +23,24 @@ public class PaymentActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.payment_activity_title));
 
-        Trip tripSP = new Trip("São Paulo", "são_paulo_sp", 2, new BigDecimal(243.99));
+        goToTransactionSummary();
 
-        showPrice(tripSP);
+
+    }
+
+    private void goToTransactionSummary() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(getString(R.string.trip_key))){
+            Trip trip = (Trip) intent.getSerializableExtra(getString(R.string.trip_key));
+            showPrice(trip);
+            Button confirmPaymentButton = findViewById(R.id.payment_confirm_button);
+            confirmPaymentButton.setOnClickListener(view -> {
+                Intent goToTransactionSummary = new Intent(PaymentActivity.this,
+                        TransactionSummaryActivity.class);
+                goToTransactionSummary.putExtra(getString(R.string.trip_key), trip);
+                startActivity(goToTransactionSummary);
+            });
+        }
     }
 
     private void showPrice(Trip tripSP) {

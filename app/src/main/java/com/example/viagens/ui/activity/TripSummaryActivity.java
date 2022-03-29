@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,11 +19,10 @@ import com.example.viagens.util.PriceFormater;
 import com.example.viagens.util.Resource;
 import com.example.viagens.util.Text;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class TripSummaryActivity extends AppCompatActivity {
-
-    private final DateFormatter dateFormatter = new DateFormatter();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -29,22 +30,36 @@ public class TripSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_summary);
         setTitle(getString(R.string.summary_activity_title));
-        Trip trip = new Trip("São Paulo", "sao_paulo_sp", 2, new BigDecimal(243.99));
+        goToPayment();
+    }
 
-        showLocal(trip);
-        showImage(trip);
-        showDays(trip);
-        showPrice(trip);
-        showDate(trip);
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void goToPayment() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(getString(R.string.trip_key))) {
+            Trip trip = (Trip) intent.getSerializableExtra(getString(R.string.trip_key));
+            showLocal(trip);
+            showImage(trip);
+            showDays(trip);
+            showPrice(trip);
+            showDate(trip);
+            configureButton(trip);
+        }
+    }
 
-        Intent goToPayment = new Intent(this, PaymentActivity.class);
-        startActivity(goToPayment);
+    private void configureButton(Trip trip) {
+        Button paymentButton = findViewById(R.id.summary_button_payment);
+        paymentButton.setOnClickListener(view -> {
+            Intent goToPayment = new Intent(TripSummaryActivity.this, PaymentActivity.class);
+            goToPayment.putExtra(getString(R.string.trip_key), trip);
+            startActivity(goToPayment);
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void showDate(Trip trip) {
         TextView date = findViewById(R.id.summary_text_date);
-        String formattedDate = dateFormatter.dateToString(trip.getDays());
+        String formattedDate = DateFormatter.dateToString(trip.getDays());
         date.setText(formattedDate);
     }
 

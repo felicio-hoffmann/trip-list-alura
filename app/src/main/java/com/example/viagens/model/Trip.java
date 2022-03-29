@@ -1,7 +1,8 @@
 package com.example.viagens.model;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Trip {
+public class Trip implements Serializable {
 
     private final String local;
     private final String image;

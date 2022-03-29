@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.TransactionSummaryActivity">
+
+    <ImageView
+        android:id="@+id/transaction_summary_panel"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/holo_orange_dark" />
+
+    <TextView
+        android:id="@+id/transaction_summary_congratulate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Parabéns!"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/transaction_summary_panel"
+        app:layout_constraintStart_toStartOf="@+id/transaction_summary_panel"
+        app:layout_constraintTop_toTopOf="@+id/transaction_summary_panel" />
+
+    <TextView
+        android:id="@+id/transaction_summary_success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Compra realizada com sucesso :)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/transaction_summary_congratulate"
+        app:layout_constraintStart_toStartOf="@+id/transaction_summary_congratulate"
+        app:layout_constraintTop_toBottomOf="@+id/transaction_summary_congratulate" />
+
+    <TextView
+        android:id="@+id/transaction_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Confira o resumo da compra:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transaction_summary_panel" />
+
+    <ImageView
+        android:id="@+id/transaction_summary_image"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transaction_summary"
+        app:srcCompat="@drawable/sao_paulo_sp" />
+
+    <TextView
+        android:id="@+id/transaction_summary_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transaction_summary_image"
+        tools:text="São Paulo" />
+
+    <TextView
+        android:id="@+id/transaction_summary_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/transaction_summary_city"
+        app:layout_constraintTop_toBottomOf="@+id/transaction_summary_city"
+        tools:text="08/12 - 10/12 de 2020" />
+
+    <TextView
+        android:id="@+id/transaction_summary_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/transaction_summary_date"
+        app:layout_constraintTop_toBottomOf="@+id/transaction_summary_date"
+        tools:text="R$ 243,99" />
+</androidx.constraintlayout.widget.ConstraintLayout>

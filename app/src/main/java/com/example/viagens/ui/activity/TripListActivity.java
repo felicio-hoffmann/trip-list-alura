@@ -22,8 +22,19 @@ public class TripListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle(APP_TITLE);
         configureList();
-        Intent goToPayment = new Intent(this, TripSummaryActivity.class);
-        startActivity(goToPayment);
+        List<Trip> list = TripDAO.list();
+        ListView tripList = findViewById(R.id.trip_list);
+
+        goToSummary(list, tripList);
+    }
+
+    private void goToSummary(List<Trip> list, ListView tripList) {
+        tripList.setOnItemClickListener((adapterView, view, i, l) -> {
+            Trip trip = list.get(i);
+            Intent intent = new Intent(TripListActivity.this, TripSummaryActivity.class);
+            intent.putExtra(getString(R.string.trip_key), trip);
+            startActivity(intent);
+        });
     }
 
     private void configureList() {

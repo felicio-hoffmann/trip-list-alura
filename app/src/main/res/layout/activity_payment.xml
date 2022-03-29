@@ -11,6 +11,7 @@
         android:id="@+id/payment_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:text="@string/payment_instructions"
         android:textAlignment="center"
         android:textStyle="bold"
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:text="Valor da Compra"
+        android:text="@string/payment_price_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/payment_description" />
 
@@ -59,7 +60,8 @@
         android:inputType="number"
         android:maxLength="2"
         app:layout_constraintStart_toStartOf="@+id/payment_card_number"
-        app:layout_constraintTop_toBottomOf="@+id/payment_card_number" />
+        app:layout_constraintTop_toBottomOf="@+id/payment_card_number"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/payment_card_year"
@@ -70,7 +72,8 @@
         android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/payment_card_month"
-        app:layout_constraintStart_toEndOf="@+id/payment_card_month" />
+        app:layout_constraintStart_toEndOf="@+id/payment_card_month"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/payment_card_cvc"
@@ -89,12 +92,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:digits="@string/card_name_mask"
         android:hint="Nome no cartão"
         android:inputType="textPersonName"
-        android:digits="abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ "
         app:layout_constraintEnd_toEndOf="@+id/payment_card_cvc"
         app:layout_constraintStart_toStartOf="@+id/payment_card_month"
-        app:layout_constraintTop_toBottomOf="@+id/payment_card_month" />
+        app:layout_constraintTop_toBottomOf="@+id/payment_card_month"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/payment_confirm_button"

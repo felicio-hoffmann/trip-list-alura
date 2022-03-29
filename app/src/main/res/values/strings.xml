@@ -10,4 +10,8 @@
     <string name="payment_instructions">Digite as informações do cartão de crédito que você deseja utilizar para o pagamento</string>
     <string name="payment_finalize_button_text">FINALIZAR COMPRA</string>
     <string name="payment_activity_title">Pagamento</string>
+    <string name="payment_price_text">Valor da Compra</string>
+    <string name="card_name_mask">abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ</string>
+    <string name="transaction_summary_title">Resumo da compra</string>
+    <string name="trip_key">trip</string>
 </resources>
