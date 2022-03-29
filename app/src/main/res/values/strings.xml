@@ -6,4 +6,8 @@
     <string name="trip_image">Imagem do local</string>
     <string name="summary_button_paymentString">Realizar Pagamento</string>
     <string name="summary_activity_title">Resumo do Pacote</string>
+    <string name="trip_summary_image">Trip Image</string>
+    <string name="payment_instructions">Digite as informações do cartão de crédito que você deseja utilizar para o pagamento</string>
+    <string name="payment_finalize_button_text">FINALIZAR COMPRA</string>
+    <string name="payment_activity_title">Pagamento</string>
 </resources>

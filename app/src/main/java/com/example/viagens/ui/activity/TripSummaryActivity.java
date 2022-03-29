@@ -1,12 +1,12 @@
 package com.example.viagens.ui.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,6 +36,9 @@ public class TripSummaryActivity extends AppCompatActivity {
         showDays(trip);
         showPrice(trip);
         showDate(trip);
+
+        Intent goToPayment = new Intent(this, PaymentActivity.class);
+        startActivity(goToPayment);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
